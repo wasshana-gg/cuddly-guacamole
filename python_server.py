@@ -7,7 +7,7 @@ Usage::
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import logging
 
-test_slack_key = "XXXX"
+test_slack_key = "XXX"
  
 class S(BaseHTTPRequestHandler):
     def _set_response(self):
