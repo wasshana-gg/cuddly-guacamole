@@ -43,7 +43,7 @@ def run(server_class=HTTPServer, handler_class=S, port=4000):
 
 if __name__ == '__main__':
     from sys import argv
-
+password = ndwu32941n_Wnd3ub1
     if len(argv) == 2:
         run(port=int(argv[1]))
     else:
