@@ -1,15 +1,16 @@
 pipeline {
-    agent none
+    agent { docker { image 'gitguardian/ggshield:v1.17.2' } }
+        
     stages {
         stage('GitGuardian Scan') {
-            agent {
-                docker { image 'gitguardian/ggshield:latest' }
-            }
             environment {
-                GITGUARDIAN_API_KEY = credentials('gitguardian-api-key')
+                CI = 'true'
             }
             steps {
-                sh 'ggshield secret scan ci'
+                echo "Starting analysis with GitGuardian"
+                withCredentials([string(credentialsId: 'gitguardian-api-key', variable: 'GITGUARDIAN_API_KEY')]) {
+                    sh 'ggshield secret scan -v ci'
+                }
             }
         }
     }
