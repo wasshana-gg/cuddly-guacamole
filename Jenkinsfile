@@ -2,7 +2,7 @@ pipeline {
     agent { docker { image 'gitguardian/ggshield:v1.38.1' } }
         
     stages {
-        stage('GitGuardian Scan') {
+        stage('GitGuardian Secrets Scan') {
             environment {
                 CI = 'true'
             }
