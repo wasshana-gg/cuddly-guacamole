@@ -9,6 +9,7 @@ pipeline {
             steps {
                 echo "Starting analysis with GitGuardian"
                 withCredentials([string(credentialsId: 'gitguardian-api-key', variable: 'GITGUARDIAN_API_KEY')]) {
+                    sh 'git config --global --add safe.directory \'*\''
                     sh 'ggshield --version'
                     sh 'ggshield secret scan -v --debug ci'
                 }
