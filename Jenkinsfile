@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'gitguardian/ggshield:latest' } }
+    agent { docker { image 'gitguardian/ggshield:v1.38.1' } }
         
     stages {
         stage('GitGuardian Scan') {
