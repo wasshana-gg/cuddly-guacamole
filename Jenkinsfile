@@ -11,7 +11,7 @@ pipeline {
                 withCredentials([string(credentialsId: 'gitguardian-api-key', variable: 'GITGUARDIAN_API_KEY')]) {
                     sh 'VALUE="$(pwd)"'
                     sh 'echo $VALUE'
-                    sh 'git config --global --add safe.directory $VALUE'
+                    sh 'git config --global --add safe.directory "$(VALUE)"'
                     sh 'ggshield --version'
                     sh 'ggshield secret scan -v --debug ci'
                 }
