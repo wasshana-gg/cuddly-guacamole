@@ -9,7 +9,7 @@ pipeline {
             steps {
                 echo "Starting analysis with GitGuardian"
                 withCredentials([string(credentialsId: 'gitguardian-api-key', variable: 'GITGUARDIAN_API_KEY')]) {
-                    sh 'pwd > $VALUE'
+                    sh 'VALUE="$(pwd)"'
                     sh 'echo $VALUE'
                     sh 'git rev-parse --show-toplevel'
                     sh 'git config --global --add safe.directory \'*\''
