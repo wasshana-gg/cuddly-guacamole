@@ -12,6 +12,7 @@ pipeline {
                     sh 'VALUE="$(pwd)"'
                     sh 'echo $VALUE'
                     sh 'git config --global --add safe.directory "$(VALUE)"'
+                    sh 'git config --globale --add safe.directory "*"'
                     sh 'ggshield --version'
                     sh 'ggshield secret scan -v --debug ci'
                 }
