@@ -13,9 +13,6 @@ pipeline {
                     sh 'git config -l'
                     sh 'ggshield --version'
                     sh 'ggshield secret scan -v --debug ci'
-                    sh 'git config --global --add safe.directory \'*\''
-                    sh 'ggshield --version'
-                    sh 'ggshield secret scan -v --debug ci'
                 }
             }
         }
